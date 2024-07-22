@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Watson Assistant Chat</title>
+    <style>
+        #chat-container {
+            width: 100%; /* Make sure it adjusts to the width of its container */
+            height: 500px; /* Adjust height as needed */
+            margin-top: 20px; /* Space above the chatbot */
+        }
+    </style>
+    <script>
+        window.watsonAssistantChatOptions = {
+          integrationID: "8a5b0acb-8887-4233-a718-f7d45c52e916", // The ID of this integration.
+          region: "au-syd", // The region your integration is hosted in.
+          serviceInstanceID: "13645d59-6446-4fe6-9eea-7f6cf6e041a4", // The ID of your service instance.
+          onLoad: async (instance) => { await instance.render(); }
+        };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+          document.getElementById('chat-container').appendChild(t);
+        });
+    </script>
+</head>
+<body>
+    <div id="chat-container"></div>
+</body>
+</html>
